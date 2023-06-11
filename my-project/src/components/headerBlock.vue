@@ -8,7 +8,8 @@
         alt=""
         class="header-logo header-logo-img h-full ml-2"
       />
-      <h2 class="my-auto ml-2 bg-1">nuHRM</h2>
+      <h2 class="my-auto ml-2 bg-1 cursor-pointer"
+      @click="plus">nuHRM</h2>
     </div>
 
     <div class="navbar flex mr-5">
@@ -23,7 +24,7 @@
       </div>
       <div class="user flex my-auto cursor-pointer hover:bg-slate-200 p-1 pl-3 pr-3 rounded">
         <div class="user-img rounded-full bg-slate-400 mr-1"></div>
-        <div class="user-btn mt-1">陳品元</div>
+        <div class="user-btn mt-1" @click="plus">陳品元</div>
         <div class="user-arrow">
           <img src="../assets/arrow-down.svg" alt="" >
         </div>
@@ -32,7 +33,16 @@
   </div>
 </template>
 <script>
-
+import { mainStore } from '../store';
+import { ref, reactive} from "vue"
+export default {
+  setup(){
+    const store = mainStore();
+    return{
+      store,
+    }
+  }
+};
 </script>
 <style scoped lang="less">
 

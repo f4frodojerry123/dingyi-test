@@ -2,6 +2,7 @@
 import contentScroll from "./contentScroll/index.vue";
 import navList from "./navList.vue";
 import catalogue from "./catalogue.vue"
+import recent from "./recent.vue"
 </script>
 
 <template>
@@ -9,26 +10,23 @@ import catalogue from "./catalogue.vue"
     <contentScroll />
     <div class="catalogue">
       <navList />
-      <catalogue/>
+      <recent />
+      <catalogue />
     </div>
 
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {};
-  },
-  methods: {},
-};
+
 </script>
-<style scoped lang="postcss">
-.content{
+<style scoped lang="scss">
+.content {
   display: flex;
   padding-top: 56px;
   background-color: #e5e6e6;
 }
-.catalogue{
+
+.catalogue {
   padding: 20px;
   width: 100%;
 }
