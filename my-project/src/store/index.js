@@ -1,12 +1,19 @@
 import { defineStore } from 'pinia'
 import Cookies from 'js-cookie'
-let recentLinksFromCookie = JSON.parse(Cookies.get('recentLinks')) 
+let recentLinksFromCookie = []
+if (Cookies.get('recentLinks')) {
+  recentLinksFromCookie = JSON.parse(Cookies.get('recentLinks'))
+}
+ 
 // console.log(recentLinksFromCookie);
+
+
+// let localLanguageCookie = 
 export const mainStore = defineStore('main', {
   state: () => {
     return {
       recentLinks: recentLinksFromCookie,
-      count: 0,
+      localLanguage: "cn",
       allData: [
         {
           title: "個人中心",

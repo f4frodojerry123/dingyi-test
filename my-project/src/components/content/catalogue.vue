@@ -1,43 +1,43 @@
 <template>
   <div class="main">
-    <div class="catalogue" v-for="(item, index) in store.allData" :key="index">
+    <div class="catalogue" v-for="(item, title) in store.allData" :key="title">
       <div class="catalogue-title">
-        {{ item.title }}
+        {{ $t(`allData[${title}].title`) }}
+
       </div>
       <div class="catalogue-content">
-        <div v-for="(link, index) in item.links" :key="index" class="link" @click="store.addRecentLinks(link)">
+        <div
+          v-for="(link, index) in item.links"
+          :key="index"
+          class="link"
+          @click="store.addRecentLinks($t(`allData[${title}].links[${index}]`))"
+        >
           <a href="#">
-            {{ link }}
+            {{$t(`allData[${title}].links[${index}]`)}}
           </a>
+
         </div>
       </div>
     </div>
   </div>
 </template>
-<script>
-import { mainStore } from '../../store';
+<script setup>
+import { mainStore } from "../../store";
 import { ref, reactive } from "vue";
-export default {
-  setup() {
-    const store = mainStore();
-    function show(item) {
-      item.show = !item.show
-    };
-    return {
-      store,
-      show,
-    }
-  }
+import { useI18n } from "vue-i18n";
 
-};
+const store = mainStore();
+function show(item) {
+  item.show = !item.show;
+}
+console.log();
+
 </script>
 
 <style scoped lang="scss">
 .main {
   display: flex;
   flex-wrap: wrap;
-
-
 }
 
 .catalogue {

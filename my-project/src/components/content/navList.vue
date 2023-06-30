@@ -3,24 +3,18 @@
 
 <template>
   <div class="navList">
-    <div class="List" @click="plus">總覽 </div>
-    <div class="List">個人</div>
-    <div class="List" >資訊中心</div>
+    <div class="List">{{ $t("navList1") }}</div>
+    <div class="List">{{ $t("navList2") }}</div>
+    <div class="List">{{ $t("navList3") }}</div>
   </div>
 </template>
-<script>
-import { mainStore } from '../../store';
-export default {
-  setup(){
-    const store = mainStore();
-    return{
-      store
-    }
-  }
-};
+<script setup>
+import { mainStore } from "../../store";
+
+const store = mainStore();
 </script>
 <style scoped lang="scss">
-.navList{
+.navList {
   display: flex;
   width: 100%;
   margin: 0 auto;
@@ -29,15 +23,13 @@ export default {
   background-color: #2796db;
   border-radius: 5px;
   color: white;
-  
-  .List{
+
+  .List {
     width: 33%;
     text-align: center;
     height: 40px;
     line-height: 40px;
     cursor: pointer;
-
   }
 }
-
 </style>
