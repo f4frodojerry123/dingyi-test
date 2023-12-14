@@ -1,15 +1,17 @@
-<script setup>
-import headerBlock from './components/headerBlock.vue'
-import content from './components/content/index.vue'
-
-</script>
-
 <template>
-  <headerBlock/>
-  <content/>
+  <router-view />
+  <div v-if="!route.name" @click="page()">index</div>
 </template>
-<script>
-
+<script setup>
+const router = useRouter();
+const route = useRoute();
+onBeforeMount(() => {
+  // router.push('/work1')
+  console.log(route.name);
+});
+const page = () => {
+  router.push('/work1')
+}
 </script>
 <style scoped lang="scss">
 
